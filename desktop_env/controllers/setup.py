@@ -418,8 +418,7 @@ class SetupController:
             # VM proxy configuration for Chrome:
             # - OSGYM_VM_PROXY="none" or "false" or "0": disable proxy
             # - OSGYM_VM_PROXY="http://...": use specified proxy
-            # - OSGYM_VM_PROXY not set: use default proxy http://127.0.0.1:8119
-            vm_proxy = os.environ.get("OSGYM_VM_PROXY", "http://127.0.0.1:8119")
+            vm_proxy = os.environ.get("OSGYM_VM_PROXY")
             if vm_proxy.lower() not in ("none", "false", "0", ""):
                 command.append(f"--proxy-server={vm_proxy}")
                 # Bypass proxy for local addresses (Docker host IP, localhost, etc.)
