@@ -419,7 +419,7 @@ class SetupController:
             # - OSGYM_VM_PROXY="none" or "false" or "0": disable proxy
             # - OSGYM_VM_PROXY="http://...": use specified proxy
             vm_proxy = os.environ.get("OSGYM_VM_PROXY")
-            if vm_proxy.lower() not in ("none", "false", "0", ""):
+            if vm_proxy:
                 command.append(f"--proxy-server={vm_proxy}")
                 # Bypass proxy for local addresses (Docker host IP, localhost, etc.)
                 command.append("--proxy-bypass-list=172.17.0.1;localhost;127.0.0.1;10.*;192.168.*")
